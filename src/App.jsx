@@ -1,6 +1,7 @@
-import { useState } from 'react'
-import './App.css'
-import Home from './pages/Home'
+import { useState } from 'react';
+import './App.css';
+import { DataProvider } from './context/DataContext';
+import Home from './pages/Home';
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
     <>
       <Home />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

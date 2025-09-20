@@ -10,7 +10,7 @@ const DeviceList = ({ devices }) => {
           <li
             key={index}
             className={`p-3 rounded shadow-md ${
-              device.available ? 'bg-green-100' : 'bg-red-100'
+              device.available ? 'bg-green-300' : 'bg-red-300'
             }`}
           >
             <span className="font-medium">{device.name}</span> —{' '}

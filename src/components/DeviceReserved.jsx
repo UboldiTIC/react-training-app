@@ -13,15 +13,14 @@ const DeviceReserved = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Página Principal</h1>
+      {showDevices && <DeviceList devices={devices} />}
+
       <button
         onClick={() => setShowDevices(true)}
         className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
       >
-        Ver dispositivos de la reserva
+        Ver dispositivos de la reserva.
       </button>
-
-      {showDevices && <DeviceList devices={devices} />}
     </div>
   );
 };
