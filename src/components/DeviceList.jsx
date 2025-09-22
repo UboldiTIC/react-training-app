@@ -14,7 +14,12 @@ const DeviceList = ({ devices }) => {
             }`}
           >
             <span className="font-medium">{device.name}</span> —{' '}
-            {device.available ? 'Disponible' : 'No disponible'}
+            {device.available ? 'Disponible' : 'No disponible'} —{' '}
+            {device.date} —{' '} 
+            {device.available
+              ? 'Disponible'
+              : `${device.time_from} - ${device.time_to}`
+            } —{' '}
           </li>
         ))}
       </ul>
