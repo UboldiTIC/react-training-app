@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import DeviceList from './DeviceList';
 
 const DeviceReserved = () => {
@@ -16,6 +16,8 @@ const DeviceReserved = () => {
     { name: 'Notebook Lenovo', available: true, date: '2025-03-22', time_from: '00:00', time_to: '23:59' },
     { name: 'Proyector Epson', available: false, date: '2025-03-22', time_from: '08:00', time_to: '10:00' },
     { name: 'Tablet Samsung', available: true, date: '2023-10-01', time_from: '00:00', time_to: '23:59' },
+    { name: 'Proyector Epson', available: false, date: '2025-09-22', time_from: '08:00', time_to: '10:00' },
+    { name: 'Tablet Samsung', available: true, date: '2025-09-22', time_from: '00:00', time_to: '23:59' },
   ];
 
   return (

@@ -1,4 +1,3 @@
-import React from "react";
 import DeviceReserved from "./DeviceReserved";
 import { DataProvider } from "../context/DataContext";
 

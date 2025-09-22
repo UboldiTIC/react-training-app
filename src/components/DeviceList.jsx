@@ -1,6 +1,3 @@
-
-import React from 'react';
-
 const DeviceList = ({ devices }) => {
   return (
     <div className="p-4">
