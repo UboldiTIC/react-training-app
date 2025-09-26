@@ -6,9 +6,9 @@ const DeviceReserved = () => {
   const [filteredReserved, setFilteredReserved] = useState([]);
 
   const reserves = [
-    { date: '2025-10-01', time_from: '08:00', time_to: '10:30', name: 'Notebook Lenovo' },
-    { date: '2025-10-01', time_from: '09:00', time_to: '11:00', name: 'Tablet Samsung' },
-    { date: '2022-10-02', time_from: '14:00', time_to: '18:15', name: 'Smartphone iPhone' },
+    { date: '2025-10-01', time_from: '08:00', time_to: '10:30', name: 'Notebook Lenovo', user: 'Juan Pérez' },
+    { date: '2025-10-01', time_from: '09:00', time_to: '11:00', name: 'Tablet Samsung', user: 'María Gómez' },
+    { date: '2025-10-02', time_from: '14:00', time_to: '18:15', name: 'Smartphone iPhone', user: 'Carlos Ruiz' },
   ];
 
   const handleFilter = () => {
@@ -58,7 +58,7 @@ const DeviceReserved = () => {
                 key={index}
                 className="p-2 rounded mb-2 bg-red-200 text-red-800"
               >
-                {reserve.name} — {reserve.time_from} a {reserve.time_to}
+                {reserve.name} — {reserve.time_from} a {reserve.time_to} — {reserve.user}
               </li>
             ))}
           </ul>
