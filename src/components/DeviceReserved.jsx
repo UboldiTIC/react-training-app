@@ -1,30 +1,9 @@
-
 import { useState } from 'react';
-
-const DeviceList = ({ devices }) => (
-  <ul className="mb-6">
-    {devices.map((device, index) => (
-      <li
-        key={index}
-        className={`p-2 rounded mb-2 ${
-          device.inUse === 'false' ? 'bg-red-200 text-red-800' : 'bg-green-200 text-green-800'
-        }`}
-      >
-        {device.name}
-      </li>
-    ))}
-  </ul>
-);
+import DeviceList from './DeviceList';
 
 const DeviceReserved = () => {
   const [date, setDate] = useState('');
   const [filteredReserved, setFilteredReserved] = useState([]);
-
-  const devices = [
-    { name: 'Notebook Lenovo', inUse: 'true' },
-    { name: 'Tablet Samsung', inUse: 'false' },
-    { name: 'Smartphone iPhone', inUse: 'true' },
-  ];
 
   const reserves = [
     { date: '2025-10-01', time_from: '08:00', time_to: '10:30', name: 'Notebook Lenovo' },
@@ -39,24 +18,21 @@ const DeviceReserved = () => {
     }
 
     const reservedOnDate = reserves
-      .filter((r) => r.date === date)
-      .map((r) => r.name);
+      .filter((r) => r.date === date);
 
+    if (reservedOnDate.length === 0) {
+      alert('No hay reservas registradas para esa fecha.');
+      setFilteredReserved([]);
+      return;
+    }
 
-      if (reservedOnDate.length === 0) {
-          alert('No hay reservas registradas para esa fecha.');
-          setFilteredReserved([]); // Limpiar resultados anteriores si los hay
-          return;
-        }
-        
-    const filtered = devices.filter((d) => reservedOnDate.includes(d.name));
-    setFilteredReserved(filtered);
+    setFilteredReserved(reservedOnDate);
   };
 
   return (
     <div className="p-6 max-w-xl mx-auto">
       <h2 className="text-xl font-bold mb-4">Todos los dispositivos</h2>
-      <DeviceList devices={devices} />
+      <DeviceList />
 
       <div className="mb-4">
         <input
@@ -76,7 +52,16 @@ const DeviceReserved = () => {
       {filteredReserved.length > 0 && (
         <>
           <h2 className="text-xl font-bold mb-2">Reservados el {date}</h2>
-          <DeviceList devices={filteredReserved} />
+          <ul className="mb-6">
+            {filteredReserved.map((reserve, index) => (
+              <li
+                key={index}
+                className="p-2 rounded mb-2 bg-red-200 text-red-800"
+              >
+                {reserve.name} — {reserve.time_from} a {reserve.time_to}
+              </li>
+            ))}
+          </ul>
         </>
       )}
     </div>

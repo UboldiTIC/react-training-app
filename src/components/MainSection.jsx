@@ -3,10 +3,10 @@ import { DataProvider } from "../context/DataContext";
 
 const MainSection = () => {
   return (
-    <section className="max-w-4xl mx-auto bg-white p-6 rounded shadow">
+    <section className="max-w-4xl mx-auto bg-white p-2 rounded shadow">
       <>
         <DataProvider>
-          <h2 className="text-black text-2xl font-bold mb-4">Gestión de Reservas</h2>
+          {/* <h2 className="text-black text-2xl font-bold mb-4">Gestión de Reservas</h2> */}
           <DeviceReserved />
         </DataProvider>
       </>
