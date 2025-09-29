@@ -20,7 +20,7 @@ const DeviceList = () => {
         >
           <span>{device.name}</span>
           {device.inUse === 'true' && (
-            <ReservaButton />
+            <ReservaButton name={device.name} />
           )}
         </li>
       ))}
