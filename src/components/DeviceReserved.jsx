@@ -1,9 +1,14 @@
 import { useState } from 'react';
 import DeviceList from './DeviceList';
+import ModalAlert from './ModalAlert';
 
 const DeviceReserved = () => {
   const [date, setDate] = useState('');
   const [filteredReserved, setFilteredReserved] = useState([]);
+
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+
 
   const reserves = [
     { date: '2025-10-01', time_from: '08:00', time_to: '10:30', name: 'Notebook Lenovo', user: 'Juan Pérez' },
@@ -13,7 +18,9 @@ const DeviceReserved = () => {
 
   const handleFilter = () => {
     if (!date) {
-      alert('Por favor selecciona una fecha.');
+      // alert('Por favor selecciona una fecha.');
+      setModalMessage('Por favor selecciona una fecha.');
+      setShowModal(true);
       return;
     }
 
@@ -21,7 +28,9 @@ const DeviceReserved = () => {
       .filter((r) => r.date === date);
 
     if (reservedOnDate.length === 0) {
-      alert('No hay reservas registradas para esa fecha.');
+      // alert('No hay reservas registradas para esa fecha.');
+      setModalMessage('No hay reservas registradas para esa fecha.');
+      setShowModal(true);
       setFilteredReserved([]);
       return;
     }
@@ -47,6 +56,15 @@ const DeviceReserved = () => {
         >
           Ver dispositivos reservados
         </button>
+
+        {/* Renderizado condicional del modal */}
+        {showModal && (
+          <ModalAlert
+            message={modalMessage} // Aquí se pasa el mensaje como prop
+            onClose={() => setShowModal(false)} // Función para cerrar el modal
+          />
+        )}
+
       </div>
 
       {filteredReserved.length > 0 && (
